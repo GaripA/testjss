@@ -1,0 +1,33 @@
+<h1><h1>Liste des TV souhaitée</h1></h1>
+<ul>
+  <% for(task of tasks) { %>
+     <!-- task est une variable pour le for, elle est arbitraire. 
+
+    tasks est la variable qui a instancié dans server.js et qui contient la table  de la database -->
+
+    <li><%= task.brand %> <%= task.price %> <%= task.size %> - <a href="/delete/<%= task.id %>">Delete</a>--<a href="/acheter/<%= task.id %>">Acheter</a> </li>
+
+  <% } %>
+</ul>
+<h1>Liste des TV achetées</h1>
+<ul>
+  
+  <% for(elem of owned) { %>
+    <li><%= elem.brand %> <%= elem.price %> <%= elem.size %> - <a href="/delete/<%= elem.id %>">Delete</a></li>
+  <% } %>
+</ul>
+<form action="/add" method="POST">
+  <label for="brand">Marque :</label>
+<input type="text" id="brand" name="brand" />
+
+<label for="price">Prix :</label>
+<input type="text" id="price" name="price" />
+
+<label for="size">Taille :</label>
+<input type="text" id="size" name="size" />
+
+  
+
+
+  <input type="submit" />
+</form>
